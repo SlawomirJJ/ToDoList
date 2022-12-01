@@ -1,0 +1,52 @@
+﻿@model IEnumerable<TODOList.Models.DayModel>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="ToReset">
+                Do zrobienia Dziś
+            </th>
+        </tr>
+
+              
+
+    </thead>
+
+    <tbody >
+        @foreach (var item in Model) {
+        
+        <tr class="navbar navbar-expand-lg navbar-light bg-light">
+            <td class="ToReset">
+               <h1> @Html.DisplayFor(modelItem => item.Date.DayOfWeek) </h1>
+                <div id="zadanie">
+                    @if(item.Tasks != null)
+                    {
+                        @foreach(var taskItem in item.Tasks)
+                        {   <div class="taskPageDiv" id="@taskItem.Id">
+                            @if(taskItem.IsDone == true)
+                            {
+                                  @Html.Partial("DoneTask",taskItem)  
+                            }
+                            else
+                                @Html.Partial("DetailsTask",taskItem)
+
+                            
+                            
+                            </div>
+                            <div style= margin:10px ></div>
+                            
+                        }    
+                    }                       
+                </div>
+
+                <button type="button" class="btn btn-info">Add task</button>
+
+            </td>
+        </tr>
+} 
+    </tbody>
+</table>
+

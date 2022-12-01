@@ -1,0 +1,29 @@
+﻿@model TODOList.Models.TaskModel
+
+<div class="alert alert-dismissible alert-success">
+    <div class="card-header">
+         <legend>@Html.DisplayFor(model => model.Name)</legend>
+         @Html.DisplayFor(model => model.StartTime) : @Html.DisplayFor(model => model.EndTime) &emsp;
+         @Html.DisplayNameFor(model => model.Priority):  @Html.DisplayFor(model => model.Priority) &emsp;     
+         
+         @Html.DisplayFor(model=>model.IsDone)
+            <label>
+ 
+                @Html.DisplayNameFor(model => model.IsDone)
+             </label> &emsp;
+
+        
+           <br> <br>
+          
+
+         <br>
+         @Html.DisplayFor(model => model.Description)
+
+         <br><br>
+
+    </div>
+
+
+</div>
+
+
